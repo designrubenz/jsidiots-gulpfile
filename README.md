@@ -3,6 +3,11 @@
 
 This is a gulpfile that simply works, is easy to understand and aimed at webdevelopers starting a new website project - without the fancy stuff (yes, I am talking about you, Browserifiers).
 
+**How to use**
+* install the prerequisites: NPM, gulp
+* clone this respository to your local machine
+* run any of the gulp commands listed below
+
 **What it does for you**
 * uses sass (supporting the scss-syntax) and minifies your css for production
 * autoprefixes your css-file depending on your choice of browsers you want to support
