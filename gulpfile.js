@@ -49,7 +49,7 @@ gulp.task('sass', function () {
       }
     }))
     .pipe(sass())
-    .pipe(autoprefixer({browsers: ['chrome >= 40']}))
+    .pipe(autoprefixer({browsers: ['chrome >= 40']})) // no autprefixing needed in development
     .pipe(gulp.dest(src))
     .pipe(reload({stream: true}));
 });
