@@ -46,3 +46,19 @@ html, body, button {
     position: absolute;
     width: 1px;
 }
+
+@mixin breakpoint($min, $max: 0) {
+  @if $max == 0 {
+    @media ( min-width: pem($min) ) { @content }
+  } @else {
+    @media ( min-width: pem($min) ) and ( max-width: pem($max) ) { @content }
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
