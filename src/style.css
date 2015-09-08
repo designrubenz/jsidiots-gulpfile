@@ -43,19 +43,45 @@ html, body, button {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased; }
 
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 html {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  color: #333; }
 
 h1 {
   background-color: #99bf0d;
   color: #fae005;
   font-size: 2em;
-  padding: 0.25em;
-  border-bottom: 1px #999 solid;
-  margin-bottom: 0.25em; }
+  padding: 0.5em;
+  border-bottom: 0.0625em #999 solid; }
 
 p {
-  padding: 0.5em; }
+  padding: 1em; }
 
-body {
-  color: #555; }
+*, *:after, *:before {
+  box-sizing: border-box; }
+
+.max-width-container {
+  width: 100%;
+  padding: 0 1em; }
+
+.container {
+  width: 100%;
+  max-width: 80em;
+  margin: 0 auto;
+  position: relative; }
+
+[class*='col-'] {
+  float: left;
+  padding-right: 1em; }
+  .grid [class*='col-']:last-of-type {
+    padding-right: 0; }

@@ -1,9 +1,9 @@
 @function pem($px, $base: 16) {
-    @return ($px / $base) + em;
+  @return ($px / $base) + em;
 }
 
 *, *:after, *:before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body, button {
@@ -13,38 +13,42 @@ html, body, button {
 }
 
 @mixin clearfix {
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-    *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
 }
 
 // Hide from both screenreaders and browsers: h5bp.com/u
 @mixin hidden {
-    display: none !important;
-    visibility: hidden;
+  display: none !important;
+  visibility: hidden;
+}
+
+.hidden {
+  @include hidden;
 }
 
 @mixin show {
-    display: inline !important;
-    visibility: visible;
+  display: inline !important;
+  visibility: visible;
 }
 
 // Hide only visually, but have it available for screenreaders: h5bp.com/v
 @mixin visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 @mixin breakpoint($min, $max: 0) {
@@ -53,6 +57,11 @@ html, body, button {
   } @else {
     @media ( min-width: pem($min) ) and ( max-width: pem($max) ) { @content }
   }
+}
+@mixin full-height-parent-of-floats { 
+  // http://stackoverflow.com/questions/9446988/expanding-the-parent-container-with-100-height-to-account-for-floated-content
+  min-height: 100%; 
+  overflow-y: hidden; 
 }
 
 .left {

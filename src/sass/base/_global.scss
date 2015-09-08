@@ -1,0 +1,16 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  color: $copy-color;
+}
+
+h1 {
+  background-color: $primary-color;
+  color: $yellow;
+  font-size: 2em;
+  padding: 0.5 * $padding; 
+  border-bottom: pem(1) #999 solid;
+}
+
+p {
+  padding: $padding;
+}
