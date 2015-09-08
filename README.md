@@ -26,14 +26,14 @@ This is a gulpfile that simply works, is easy to understand and aimed at webdeve
 **directory structure**
 
 `/src`: put all your code and images here. Be careful not to put code into 'src/js/main.js' (s. below).
-`/build`: will contain all the files ready for production. To automatically generate them, use `gulp production`.
+`/production`: will contain all the files ready for production. To automatically generate them, use `gulp prod`.
 
 You can easily change the names of your source and build folder on the first two lines of gulpfile.js according to your own preferences.
 
 
 **gulp commands**
 * `gulp`: starts the server (using browsersync so that you can easily test your sites on all devices available). Refreshes the browsers automatically when you edit and save your scss, js or index.html files. Use this command while working on your project.
-* `gulp production`: generates and copies all the files you need for deployment into the build folder
+* `gulp prod` or `gulp production`: generates and copies all the files you need for deployment into the build folder
 * `gulp clear`: deletes all files in your build folder
 * `gulp pagespeed`: tests the speed of your site with google page speed (make sure to edit the name of your live site in your gulpfile)
 * `gulp lint` checks your JS-code (and is invoked every time you change any of your JS-files)
