@@ -45,7 +45,7 @@ function errorAlert(error){
 
   notify({
     subtitle:  error.plugin.toUpperCase() + ' caused an error.',
-    title: lineNumber + ': ' + filename,
+    title: lineNumber + filename,
     sound: 'Glass' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
   }).write(error);
 
