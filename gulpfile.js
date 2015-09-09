@@ -23,7 +23,6 @@ var growl        = require('growl');
 var gutil        = require('gulp-util');
 var ftp          = require('vinyl-ftp');
 var changed      = require('gulp-changed');
-var runSequence  = require('gulp-run-sequence');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 8',
