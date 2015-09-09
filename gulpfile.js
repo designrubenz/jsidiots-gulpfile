@@ -1,6 +1,8 @@
-var dest      = "./production",
+var dest      = "./build",
     src       = './src',
     notjssrc  = '!' + src + '/js/main.js';
+
+var ftpconfig = require('./ftpconfig');
 
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
@@ -19,6 +21,9 @@ var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
 var growl        = require('growl');
 var gutil        = require('gulp-util');
+var ftp          = require('vinyl-ftp');
+var changed      = require('gulp-changed');
+var runSequence  = require('gulp-run-sequence');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 8',
@@ -49,7 +54,6 @@ function errorAlert(error){
     sound: 'Glass' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
   }).write(error);
 
-
   // Inspect the error object
   //console.log(error);
 
@@ -72,11 +76,11 @@ function errorAlert(error){
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function () {
-  browserSync({
-    server: src
-  });
-  gulp.watch(src + "/sass/**/*.scss", ['sass']);
-  gulp.watch([src + "/js/**/*.js", notjssrc], ['js']);
+browserSync({
+server: src
+});
+gulp.watch(src + "/sass/**/*.scss", ['sass']);
+gulp.watch([src + "/js/**/*.js", notjssrc], ['js']);
   gulp.watch(src + "/*.html").on('change', reload);
 });
 
@@ -93,10 +97,10 @@ gulp.task('sass', function () {
 // Lint JS first, then concat and minify
 gulp.task('js', ['jslint'], function () {
   return gulp.src([src + '/js/lib/*.js', src + '/js/*.js', notjssrc])
-                                       .pipe(concat('main.js'))
-                                       .pipe(gulp.dest(src + '/js/'))
-                                   .pipe(reload({stream: true}));
-                                   });
+         .pipe(concat('main.js'))
+         .pipe(gulp.dest(src + '/js/'))
+         .pipe(reload({stream: true}));
+});
 
 // JSlint
 gulp.task('jslint', function () {
@@ -132,6 +136,7 @@ process.stdout.write("\nTo minify and copy images, run the 'compress'-task.\n\n"
     gulp.src([src + '/*', "!" + src + "/style.css", "!" + src + "/sass"])
     .pipe(gulp.dest(dest));
     gulp.src(src + '/images/icons-touch/*')
+    .pipe(changed(dest + '/images/icons-touch'))
     .pipe(gulp.dest(dest + '/images/icons-touch'));
     };
 
@@ -152,6 +157,14 @@ strategy: 'mobile'
 // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
 // key: 'YOUR_API_KEY'
 }, cb);
+});
+
+// Easy FTP-upload
+gulp.task('deploy', ['prod'], function() {
+  var conn = ftp.create(ftpconfig);
+  return gulp.src( './build/index.html', { base: 'build', buffer: false } )
+  .pipe( conn.newer( '/www' ) ) // only upload newer files
+  .pipe( conn.dest( '/www' ) );
 });
 
 // Default: turn the server on and refresh/inject on change!
