@@ -20,6 +20,7 @@ This is a gulpfile that simply works, is easy to understand and aimed at webdeve
 * minifies images (jpg, png, jpg, svg)
 * tests the pagespeed of your site
 * includes various icon references for touch devices and a favicon.ico as a reminder
+* uploads the production files that have been changed to your server
 * If there is a syntax error in your sass code, gulp serve/watch won't crash (but an error message will
   be displayed instead [using gulp-plumber]).
 
