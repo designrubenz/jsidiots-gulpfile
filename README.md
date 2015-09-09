@@ -33,10 +33,12 @@ You can easily change the names of your source and build folder on the first two
 
 **gulp commands**
 * `gulp`: starts the server (using browsersync so that you can easily test your sites on all devices available). Refreshes the browsers automatically when you edit and save your scss, js or index.html files. Use this command while working on your project.
-* `gulp prod` or `gulp production`: generates and copies all the files you need for deployment into the build folder
 * `gulp clear`: deletes all files in your build folder
 * `gulp pagespeed`: tests the speed of your site with google page speed (make sure to edit the name of your live site in your gulpfile)
 * `gulp lint` checks your JS-code (and is invoked every time you change any of your JS-files)
+* `gulp prod` or `gulp production`: generates and copies all the files you need for deployment into the build folder
+* `gulp deploy`: prepares files for production and uploads them to your server
+  using the config in ftpconfig.js 
 
 **JS files**
 
