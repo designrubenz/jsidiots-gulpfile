@@ -194,12 +194,12 @@ gulp.task('pagespeed', function(cb) {
 // Easy FTP-upload
 gulp.task('deploy', ['prod'], function() {
   var conn = ftp.create(ftpconfig);
-  return gulp.src('./build/index.html', {
+  return gulp.src('./build/**/*', {
       base: 'build',
       buffer: false
     })
-    .pipe(conn.newer('/www')) // only upload newer files
-    .pipe(conn.dest('/www'));
+    .pipe(conn.newer('/')) // only upload newer files
+    .pipe(conn.dest('/'));
 });
 
 // Default: turn the server on and refresh/inject on change!
