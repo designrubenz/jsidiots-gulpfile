@@ -1,6 +1,8 @@
 # this application
 production
 # ftpconfig.js
+src/style.css
+src/js/main.js
 
 # gulp
 *.log

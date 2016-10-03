@@ -65,7 +65,7 @@ h1 {
   border-bottom: 0.0625em #999 solid; }
 
 p {
-  padding: 1em; }
+  padding-bottom: 1em; }
 
 *, *:after, *:before {
   box-sizing: border-box; }
@@ -79,6 +79,11 @@ p {
   max-width: 80em;
   margin: 0 auto;
   position: relative; }
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 [class*='col-'] {
   float: left;
