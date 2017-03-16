@@ -1,4 +1,5 @@
 # this application
+.csscomb.json
 production
 # ftpconfig.js
 src/style.css
@@ -20,6 +21,7 @@ gulp.1
 
 # MacOS
 .DS_Store
+tags
 # Thumbnails
 ._*
 # Files that might appear on external disk

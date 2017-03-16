@@ -16,7 +16,7 @@
 
 .grid {
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -31,7 +31,6 @@
 }
 
 @mixin col-single-column {
-
   [class*='col-'] {
     display: block;
     width: 100% !important;
@@ -42,5 +41,4 @@
   .col-1 {
     padding-bottom: $padding;
   }
-
 }

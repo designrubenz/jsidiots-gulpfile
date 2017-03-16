@@ -9,13 +9,12 @@
 html, body, button {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+          font-smoothing: antialiased;
 }
 
 @mixin clearfix {
-  &:before,
-  &:after {
-    content: "";
+  &:before, &:after {
+    content: '';
     display: table;
   }
   &:after {
@@ -53,15 +52,19 @@ html, body, button {
 
 @mixin breakpoint($min, $max: 0) {
   @if $max == 0 {
-    @media ( min-width: pem($min) ) { @content }
+    @media ( min-width: pem($min) ) {
+      @content
+    }
   } @else {
-    @media ( min-width: pem($min) ) and ( max-width: pem($max) ) { @content }
+    @media ( min-width: pem($min) ) and ( max-width: pem($max) ) {
+      @content
+    }
   }
 }
-@mixin full-height-parent-of-floats { 
+@mixin full-height-parent-of-floats {
   // http://stackoverflow.com/questions/9446988/expanding-the-parent-container-with-100-height-to-account-for-floated-content
-  min-height: 100%; 
-  overflow-y: hidden; 
+  min-height: 100%;
+  overflow-y: hidden;
 }
 
 .left {

@@ -81,7 +81,7 @@ p {
   position: relative; }
 
 .grid:after {
-  content: "";
+  content: '';
   display: table;
   clear: both; }
 
