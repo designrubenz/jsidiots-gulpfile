@@ -22,8 +22,7 @@ defaults to make your webdev life easier.
 * uses sass (supporting the scss-syntax), minifies and auto-prefixes your css for production.
 * auto-prefixing depending on your choice of browsers you want to support, using
     caniuse-statistics
-* autorefreshes browsers (autoreloads) (requires the [Chrome live-reload
-    extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei))
+* autorefreshes browsers (autoreloads)
 * concatenates, minifies and lints your js-files
 * creates all the files needed for production in the build directory
 * minifies images (jpg, png, jpg, svg)
