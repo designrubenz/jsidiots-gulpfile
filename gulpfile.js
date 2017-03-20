@@ -74,7 +74,7 @@ gulp.task('prod', ['js-prod', 'sass-prod', 'copy-files-root', 'copy-files'], fun
 
 gulp.task('copy-files-root', function() {
   // but do not copy the dev's style.css and the sass folder
-  return gulp.src([src + '/*', "!" + src + "/style.css", "!" + src + "/sass"])
+  return gulp.src([src + '/*', src + '/.*', "!" + src + "/style.css", "!" + src + "/sass"])
     .pipe(changed(dest))
     .pipe(gulp.dest(dest));
 });
