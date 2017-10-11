@@ -1,5 +1,5 @@
-var src = './src'
-var dest = './build'
+var src = './src';
+var dest = './build';
 var notjssrc  = '!' + src + '/js/main.js';
 
 var gulp = require('gulp');
